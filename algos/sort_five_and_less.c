@@ -6,7 +6,7 @@
 /*   By: emcariot <emcariot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 13:20:31 by emmacariot        #+#    #+#             */
-/*   Updated: 2022/03/08 12:36:59 by emcariot         ###   ########.fr       */
+/*   Updated: 2022/03/09 12:37:45 by emcariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,33 +28,33 @@ static int	get_min(t_list **piles, int val)
 	return (min);
 }
 
-static void	sort_3_and_less(t_list **pile_a)
+static void     sort_3_and_less(t_list **pile_a)
 {
-	t_list		*head;
-	int			min;
-	int			next_min;
+    t_list  *head;
+	int		top;
+	int		middle;
+	int		bot;
 
 	head = *pile_a;
-	min = get_min(pile_a, -1);
-	next_min = get_min(pile_a, min);
-	if (already_sorted(pile_a))
-		return ;
-	if (head->index == min && head->next->index != next_min)
-	{
+	top = head->value;
+	middle = head->next->value;
+	bot = head->next->next->value;
+	if (middle < top && middle < bot && bot > top)
+		swap_a(pile_a);
+	else if (middle < top && middle < bot && top > bot)
 		rotate_a(pile_a);
+	else if (middle > top && middle > bot && top > bot)
+		reverse_rotate_a(pile_a);
+	else if (middle > bot && middle < top)
+	{
 		swap_a(pile_a);
 		reverse_rotate_a(pile_a);
 	}
-	else if (head->index == next_min)
+	else if (middle > top && middle > bot && bot > top)
 	{
-		if (head->next->index == min)
-			swap_a(pile_a);
-		reverse_rotate_a(pile_a);
-	}
-	if (head->next->index == min)
+		swap_a(pile_a);
 		rotate_a(pile_a);
-	swap_a(pile_a);
-	reverse_rotate_a(pile_a);
+	}
 }
 
 static void	sort_4_and_less(t_list **pile_a, t_list **pile_b)
