@@ -6,7 +6,7 @@
 /*   By: emcariot <emcariot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 13:30:37 by emcariot          #+#    #+#             */
-/*   Updated: 2022/03/08 15:35:18 by emcariot         ###   ########.fr       */
+/*   Updated: 2022/03/09 15:15:57 by emcariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ void	ft_free(char **str);
 
 //ERROR
 void	display_error(char *str);
+void	ft_error_tab(char **str, char *s);
 
 #endif

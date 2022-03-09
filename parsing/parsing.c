@@ -6,7 +6,7 @@
 /*   By: emcariot <emcariot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 15:57:37 by emcariot          #+#    #+#             */
-/*   Updated: 2022/03/09 11:55:35 by emcariot         ###   ########.fr       */
+/*   Updated: 2022/03/09 15:21:34 by emcariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,11 @@ void	check_args(int ac, char **av)
 
 	i = 0;
 	if (ac == 2)
+	{
+		if (av[1][0] == '\0')
+			ft_error_tab(av, "Error");
 		args = ft_split(av[1], ' ');
+	}
 	else
 	{
 		i = 1;
@@ -58,7 +62,7 @@ void	check_args(int ac, char **av)
 	{
 		tmp = ft_atoi(args[i]);
 		if (!ft_isnum(args[i]))
-			display_error("Error");
+			ft_error_tab(args, "Error");
 		if (ft_convert(tmp, args, i))
 			display_error("Error");
 		if (tmp < INT_MIN || tmp > __INT_MAX__)

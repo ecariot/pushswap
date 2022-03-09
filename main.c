@@ -6,7 +6,7 @@
 /*   By: emcariot <emcariot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 11:16:34 by emcariot          #+#    #+#             */
-/*   Updated: 2022/03/08 12:58:16 by emcariot         ###   ########.fr       */
+/*   Updated: 2022/03/09 15:23:58 by emcariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		return (-1);
+	if (ac == 2 && av[1][0] == '\0')
+		display_error("Error");
 	check_args(ac, av);
 	pile_a = (t_list **)malloc(sizeof(t_list));
 	pile_b = (t_list **)malloc(sizeof(t_list));
