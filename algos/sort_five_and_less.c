@@ -6,7 +6,7 @@
 /*   By: emcariot <emcariot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 13:20:31 by emmacariot        #+#    #+#             */
-/*   Updated: 2022/03/09 12:37:45 by emcariot         ###   ########.fr       */
+/*   Updated: 2022/03/09 13:31:00 by emcariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ static int	get_min(t_list **piles, int val)
 	return (min);
 }
 
-static void     sort_3_and_less(t_list **pile_a)
+static void	sort_3_and_less(t_list **pile_a)
 {
-    t_list  *head;
+	t_list	*head;
 	int		top;
 	int		middle;
 	int		bot;
